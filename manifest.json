@@ -1,0 +1,20 @@
+{
+    "name": "JTC PDF Opener",
+    "version": "1.0",
+    "author": "Peter Lanser",
+    "description": "Hooks into the JTC page and opens (plain) PDFs a new browser tab.",
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "permissions": [
+      "activeTab"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://jtcguitar.com/*"],
+        "js": ["contentScript.js"]
+      }
+    ],
+    "manifest_version": 2
+}
