@@ -1,4 +1,5 @@
 document.addEventListener("click", event => {
+
     if (event.target && event.target.textContent != "PDF") return;
 
     let element = event.target.parentElement;
@@ -10,8 +11,10 @@ document.addEventListener("click", event => {
     if (selectedItem) {
         const match = selectedItem.id.match(/lib-item-(\d+)/);
         if (match && match.length > 1) {
-            chrome.runtime.sendMessage(null, match[1]);
             event.stopPropagation();
+            event.preventDefault();
+
+            chrome.runtime.sendMessage(null, match[1]);
         }
     }
-});
+}, true);
